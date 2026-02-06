@@ -13,7 +13,7 @@
 * interfere with the normal operation of the supplied grading code.
 *
 * Rayane Tellas
-* W30780780
+* 
 ********************************************************************/
 
 
@@ -705,4 +705,5 @@ public class Fraction
         return denominator == 0 && numerator < 0;
     }
 }
+
 
