@@ -98,12 +98,19 @@ public class FractionDemo
         Fraction a = new Fraction(1, 2);  // 1/2
         Fraction b = new Fraction(1, 3);  // 1/3
 
-        // Normal arithmetic expected results
+        // Test Group 1: Normal arithmetic
+        // Checks add/subtract/multiply/divide on normal fractions and verifies results reduce correctly.
         printExpression("1/2 + 1/3", a.add(b), "5/6");
         printExpression("1/2 - 1/3", a.subtract(b), "1/6");
         printExpression("1/2 * 1/3", a.multiply(b), "1/6");
         printExpression("1/2 / 1/3", a.divide(b), "3/2");
+
+        // Test Group 2: Negation
+        // Checks that negate() flips the sign of a normal fraction.
         printExpression("negate(1/2)", a.negate(), "-1/2");
+
+        // Test Group 3: Powers
+        // Checks positive exponent, exponent 0 returns 1, and negative exponent returns reciprocal.
         printExpression("(1/2)^3", a.pow(3), "1/8");
         printExpression("(1/2)^0", a.pow(0), "1");
         printExpression("(1/2)^-2", a.pow(-2), "4");
@@ -114,6 +121,8 @@ public class FractionDemo
         Fraction nan = new Fraction(0, 0);
         Fraction zero = new Fraction(0, 1);
 
+        // Test Group 4: Special values
+        // Checks Infinity/-Infinity/NaN rules: opposite infinities -> NaN, 0*Infinity -> NaN, Infinity/Infinity -> NaN, NaN propagates.
         printExpression("Infinity + 1/2", inf.add(a), "Infinity");
         printExpression("-Infinity + 1/2", ninf.add(a), "-Infinity");
         printExpression("Infinity + -Infinity", inf.add(ninf), "NaN");
@@ -167,3 +176,4 @@ public class FractionDemo
         System.out.println(label + " = " + result.toString() + " (expected: " + expected + ")");
     }
 }
+
